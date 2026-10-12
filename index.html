@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Kimberly - DHT11 Monitoring</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header class="header">
+
+            <h1>
+                KIMBERLY SONISO 
+            </h1>
+
+            <p>
+                Temperature & Humidity Monitoring
+            </p>
+
+        </header>
+
+
+        <!-- =========================================
+             FIREBASE STATUS
+        ========================================== -->
+
+        <div
+            id="firebaseStatus"
+            class="status"
+        >
+            Firebase Status: Connecting...
+        </div>
+
+
+        <!-- =========================================
+             CURRENT READINGS
+        ========================================== -->
+
+        <section class="current-section">
+
+            <div class="sensor-card">
+
+                <h2>
+                    🌡️ Temperature
+                </h2>
+
+                <div
+                    id="currentTemperature"
+                    class="sensor-value"
+                >
+                    -- °C
+                </div>
+
+            </div>
+
+
+            <div class="sensor-card">
+
+                <h2>
+                    💧 Humidity
+                </h2>
+
+                <div
+                    id="currentHumidity"
+                    class="sensor-value"
+                >
+                    -- %
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GRAPH
+        ========================================== -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>
+                    Sensor Graph
+                </h2>
+
+                <select id="graphDate">
+
+                    <option value="">
+                        Select Date
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas
+                    id="sensorChart"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             HISTORY BUTTON
+        ========================================== -->
+
+        <section class="card">
+
+            <div class="history-header">
+
+                <h2>
+                    Sensor History
+                </h2>
+
+                <button
+                    id="toggleHistory"
+                    class="pink-button"
+                >
+                    Show History
+                </button>
+
+            </div>
+
+
+            <div
+                id="historyContent"
+                class="hidden"
+            >
+
+                <div class="history-controls">
+
+                    <label for="historyDate">
+                        Select Date:
+                    </label>
+
+                    <select id="historyDate">
+
+                        <option value="">
+                            Select Date
+                        </option>
+
+                    </select>
+
+                    <span id="recordCount">
+                        0 records
+                    </span>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Temperature
+                                </th>
+
+                                <th>
+                                    Humidity
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="historyTableBody"
+                        >
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WIFI
+        ========================================== -->
+
+        <section class="card wifi-section">
+
+            <h2>
+                WiFi Manager
+            </h2>
+
+            <p>
+                Configure the ESP32 WiFi connection
+                through the WiFi Manager.
+            </p>
+
+            <a
+                href="/change-wifi"
+                class="pink-button"
+            >
+                Change WiFi
+            </a>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                DHT11 Monitoring System
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================
+         CHART.JS
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <!-- =========================================
+         FIREBASE APP
+    ========================================== -->
+
+    <script
+        type="module"
+        src="app.js"
+    ></script>
+
+</body>
+
+</html>
